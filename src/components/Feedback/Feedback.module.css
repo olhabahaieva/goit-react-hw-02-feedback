@@ -1,3 +1,4 @@
+/*main block*/
 .feedback{
     display: flex;
     flex-direction: column;
@@ -7,6 +8,8 @@
     font-size: 36px;
 }
 
+
+/*button*/
 .buttonContainer{
     display:flex;
     gap: 10px;
@@ -25,6 +28,8 @@
     color: white;
 }
 
+
+/*Stats block*/
 .stats{
     margin-top: 80px;
 }
