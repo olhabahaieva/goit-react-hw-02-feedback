@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import Section from 'components/Section';
 import FeedbackOptions from 'components/FeedbackOptions';
 import css from './Feedback.module.css';
 
@@ -11,8 +12,9 @@ class Feedback extends Component {
     return (
       <>
         <div className={css.feedback}>
-          <h1 className={css.heading}>Please leave feedback</h1>
+          <Section title='Leave Feedback Please'>
           <FeedbackOptions onFeedbackClick={this.handleClick}/>
+          </Section>
         </div>
       </>
     );
