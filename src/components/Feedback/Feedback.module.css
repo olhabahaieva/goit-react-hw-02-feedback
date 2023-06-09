@@ -1,0 +1,20 @@
+.feedback{
+    display: flex;
+    flex-direction: column;
+}
+
+.heading{
+    font-size: 36px;
+}
+
+.buttonContainer{
+    display:flex;
+    gap: 10px;
+}
+
+.button{
+    padding: 4px 12px;
+    border: 1px solid lightgrey;
+    border-radius: 24px;
+    background-color: white;
+}
