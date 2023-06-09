@@ -14,8 +14,8 @@ class Feedback extends Component {
     });
   };
 
-  handleSubmit = (e) => {
-    e.preventDefault()
+  handleSubmit = e => {
+    e.preventDefault();
     this.props.createStats({
       good: this.state.good,
       neutral: this.state.neutral,
@@ -62,6 +62,13 @@ class Feedback extends Component {
               Bad
             </button>
           </form>
+          <div className={css.stats} />
+          <h2 className={css.heading}>Statistics</h2>
+          <div>
+            <p className={css.text}>Good: 0</p>
+            <p className={css.text}>Neutral: 0</p>
+            <p className={css.text}>Bad: 0</p>
+          </div>
         </div>
       </>
     );
