@@ -9,17 +9,30 @@ class Feedback extends Component {
     total: 0,
   };
 
-  handleClick = (e) => {
+  handleClick = e => {
     const buttonName = e.target.name;
-    this.setState((prevState) => ({
-      [buttonName]: prevState[buttonName] + 1,
-    }), this.countTotalFeedback);
+    this.setState(
+      prevState => ({
+        [buttonName]: prevState[buttonName] + 1,
+      }),
+      () => {
+        this.countTotalFeedback();
+        this.countPositiveFeedbackPercentage();
+      }
+    );
   };
 
   countTotalFeedback = () => {
     const { good, neutral, bad } = this.state;
     const total = good + neutral + bad;
     this.setState({ total });
+  };
+
+  countPositiveFeedbackPercentage = () => {
+    const { good, neutral, bad } = this.state;
+    const total = good + neutral + bad;
+    const percent = total > 0 ? (good / total).toFixed(2) * 100 : 0;
+    this.setState({ percent });
   };
 
   render() {
@@ -60,6 +73,7 @@ class Feedback extends Component {
             <p className={css.text}>Neutral: {this.state.neutral}</p>
             <p className={css.text}>Bad: {this.state.bad}</p>
             <p className={css.text}>Total: {this.state.total}</p>
+            <p className={css.text}>Positive Feedback: {this.state.percent}%</p>
           </div>
         </div>
       </>
