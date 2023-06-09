@@ -9,8 +9,8 @@ export class App extends Component {
     bad: 0,
   };
 
-  handleFeedbackClick = (buttonName) => {
-    this.setState((prevState) => ({
+  handleFeedbackClick = buttonName => {
+    this.setState(prevState => ({
       [buttonName]: prevState[buttonName] + 1,
     }));
   };
