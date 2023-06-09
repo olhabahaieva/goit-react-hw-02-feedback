@@ -8,10 +8,11 @@ class Feedback extends Component {
     bad: 0,
   };
 
-  handleClick = e => {
-    this.setState(prevState => {
-      return { value: prevState + 1 };
-    });
+  handleClick = (e) => {
+    const buttonName = e.target.name;
+    this.setState((prevState) => ({
+        [buttonName]: prevState[buttonName] + 1
+      }));
   };
 
   render() {
