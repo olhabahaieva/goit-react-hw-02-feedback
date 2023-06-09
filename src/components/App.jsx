@@ -1,7 +1,7 @@
 import { Component } from 'react';
-import Section from './Section';
 import Feedback from './Feedback';
 import Statistics from './Statistics';
+import NotificationMessage from './NotificationMessage';
 
 export class App extends Component {
   state = {
@@ -17,6 +17,10 @@ export class App extends Component {
   };
 
   render() {
+    const { good, neutral, bad } = this.state;
+    const totalFeedback = good + neutral + bad;
+    const isFeedbackGiven = totalFeedback > 0;
+
     return (
       <div
         style={{
@@ -30,7 +34,12 @@ export class App extends Component {
       >
         <div>
           <Feedback onFeedbackClick={this.handleFeedbackClick} />
-          <Statistics feedback={this.state} />
+
+          {isFeedbackGiven ? (
+            <Statistics feedback={this.state} />
+          ) : (
+            <NotificationMessage />
+          )}
         </div>
       </div>
     );
