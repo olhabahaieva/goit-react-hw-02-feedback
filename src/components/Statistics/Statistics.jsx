@@ -1,7 +1,6 @@
 import { Component } from 'react';
 import Section from 'components/Section';
 import css from './Statistics.module.css';
-import NotificationMessage from 'components/NotificationMessage'; 
 
 class Statistics extends Component {
   
