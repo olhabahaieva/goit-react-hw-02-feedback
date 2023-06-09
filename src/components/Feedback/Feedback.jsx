@@ -8,23 +8,9 @@ class Feedback extends Component {
     bad: 0,
   };
 
-  handleClick = ({ target }) => {
-    this.setState({
-      [target.name]: target.value,
-    });
-  };
-
-  handleSubmit = e => {
-    e.preventDefault();
-    this.props.createStats({
-      good: this.state.good,
-      neutral: this.state.neutral,
-      bad: this.state.bad,
-    });
-    this.setState({
-      good: 0,
-      neutral: 0,
-      bad: 0,
+  handleClick = e => {
+    this.setState(prevState => {
+      return { value: prevState + 1 };
     });
   };
 
@@ -33,13 +19,12 @@ class Feedback extends Component {
       <>
         <div className={css.feedback}>
           <h1 className={css.heading}>Please leave feedback</h1>
-          <form onSubmit={this.handleSubmit} className={css.buttonContainer}>
+          <div className={css.buttonContainer}>
             <button
               name="good"
               type="submit"
               onClick={this.handleClick}
               className={css.button}
-              value={this.state.good}
             >
               Good
             </button>
@@ -48,7 +33,6 @@ class Feedback extends Component {
               type="submit"
               onClick={this.handleClick}
               className={css.button}
-              value={this.state.neutral}
             >
               Neutral
             </button>
@@ -57,17 +41,16 @@ class Feedback extends Component {
               type="submit"
               onClick={this.handleClick}
               className={css.button}
-              value={this.state.bad}
             >
               Bad
             </button>
-          </form>
+          </div>
           <div className={css.stats} />
           <h2 className={css.heading}>Statistics</h2>
           <div>
-            <p className={css.text}>Good: 0</p>
-            <p className={css.text}>Neutral: 0</p>
-            <p className={css.text}>Bad: 0</p>
+            <p className={css.text}>Good: {this.state.good}</p>
+            <p className={css.text}>Neutral: {this.state.neutral}</p>
+            <p className={css.text}>Bad: {this.state.bad}</p>
           </div>
         </div>
       </>
