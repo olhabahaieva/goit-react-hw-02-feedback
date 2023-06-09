@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import Section from 'components/Section';
 import css from './Statistics.module.css';
 
 class Statistics extends Component {
@@ -10,14 +11,15 @@ class Statistics extends Component {
     return (
       <>
         <div className={css.stats} />
-        <h2 className={css.heading}>Statistics</h2>
-        <div>
+        <Section title='Statistics'>
+        
           <p className={css.text}>Good: {good}</p>
           <p className={css.text}>Neutral: {neutral}</p>
           <p className={css.text}>Bad: {bad}</p>
           <p className={css.text}>Total: {total}</p>
           <p className={css.text}>Positive Feedback: {percent}%</p>
-        </div>
+        
+        </Section>
       </>
     );
   }
